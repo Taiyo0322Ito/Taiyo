@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http_Requests\PostRequest;
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -15,7 +15,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts/index')->with(['posts' => $post]);
+        return view('posts/show')->with(['post' => $post]);
     }
     
     public function create()
