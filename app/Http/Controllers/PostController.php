@@ -3,22 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-=======
-use App\Http_Requests\PostRequest;
->>>>>>> origin/master
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 
 class PostController extends Controller
 {
     public function index(Post $post)
     {
-<<<<<<< HEAD
-        return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
-    }
-}
-=======
-        return view('posts/index')->with(['posts' => $post->getPaginateByLimit(1)]);
+        return view('posts/index')->with(['posts' => $post->getPaginateByLimit(5)]);
     }
 
     public function show(Post $post)
@@ -37,6 +29,24 @@ class PostController extends Controller
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
+    
+    public function edit(Post $post)
+    {
+        return view('posts/edit')->with(['post' => $post]);
+    }
+    
+    public function update(PostRequest $request, Post $post)
+    {
+        $input = $request['post'];
+        $post->fill($input)->save();
+        return redirect('/posts/' . $post->id);
+    }
+    
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/');
+    }
 }
 ?>
->>>>>>> origin/master
+
