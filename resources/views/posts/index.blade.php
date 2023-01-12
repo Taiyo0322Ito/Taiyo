@@ -1,12 +1,16 @@
+<x-app-layout>
+        <x-slot name="header">
+            index
+        </x-slot>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
+        <head>
         <meta charset="utf-8">
         <title>Blog</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    </head>
-    <body>
+        </head>
+        <body>
         <h1>Blog Name</h1>
         <a href="/posts/create">create</a>
         <div class='posts'>
@@ -34,5 +38,8 @@
                 }
             }
         </script>
-    </body>
+　　　　<h3>ログインユーザー {{ Auth::user()->name }}</h3>
+        </body>
 </html>
+</x-app-layout>
+       
